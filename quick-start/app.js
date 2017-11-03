@@ -26,6 +26,10 @@ const
 // Sets server port and logs message on success
 app.listen(process.env.PORT || 3000, () => console.log('webhook is listening'));
 
+app.get('/health', (req, res) => {
+	res.json({status: 'ok'});
+});
+
 // Accepts POST requests at /webhook endpoint
 app.post('/webhook', (req, res) => {  
 
