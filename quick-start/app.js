@@ -15,7 +15,7 @@
  */
 
 'use strict';
-const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
+const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN || "EAACDEO48wEIBAEIJAE0bfiGmRVdYkZCWLARRfD4xMFJ3oDBMNUwViFWZBIv3QfFExjDLuYku27z0jWV9FUDxibCuvsUv68HQa2tHhp8OPHv4ETM8ub7UFKnvdSh6CoLMZCeo77A1GBXA9a7InC27j6ZBaXqJyo3aGnwtcc9l7UYiBqJ0LGwh";
 // Imports dependencies and set up http server
 const 
   request = require('request'),
@@ -24,7 +24,7 @@ const
   app = express().use(body_parser.json()); // creates express http server
 
 // Sets server port and logs message on success
-app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
+app.listen(process.env.PORT || 3000, () => console.log('webhook is listening'));
 
 // Accepts POST requests at /webhook endpoint
 app.post('/webhook', (req, res) => {  
@@ -70,7 +70,7 @@ app.post('/webhook', (req, res) => {
 app.get('/webhook', (req, res) => {
   
   /** UPDATE YOUR VERIFY TOKEN **/
-  const VERIFY_TOKEN = "<YOUR VERIFY TOKEN>";
+  const VERIFY_TOKEN = "unable-to-verify";
   
   // Parse params from the webhook verification request
   let mode = req.query['hub.mode'];
@@ -89,7 +89,7 @@ app.get('/webhook', (req, res) => {
     
     } else {
       // Responds with '403 Forbidden' if verify tokens do not match
-      res.sendStatus(403);      
+      res.sendStatus(403);
     }
   }
 });
@@ -139,7 +139,7 @@ function handleMessage(sender_psid, received_message) {
 }
 
 function handlePostback(sender_psid, received_postback) {
-  console.log('ok')
+  console.log('ok');
    let response;
   // Get the payload for the postback
   let payload = received_postback.payload;
@@ -161,7 +161,7 @@ function callSendAPI(sender_psid, response) {
       "id": sender_psid
     },
     "message": response
-  }
+  };
 
   // Send the HTTP request to the Messenger Platform
   request({

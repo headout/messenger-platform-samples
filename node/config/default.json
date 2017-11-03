@@ -1,6 +1,6 @@
 {
-    "appSecret": "",
-    "pageAccessToken": "",
-    "validationToken": "",
-    "serverURL": ""
+    "appSecret": "f6b6e01d39a0d1565c34127c95c75612",
+    "pageAccessToken": "EAACDEO48wEIBAEIJAE0bfiGmRVdYkZCWLARRfD4xMFJ3oDBMNUwViFWZBIv3QfFExjDLuYku27z0jWV9FUDxibCuvsUv68HQa2tHhp8OPHv4ETM8ub7UFKnvdSh6CoLMZCeo77A1GBXA9a7InC27j6ZBaXqJyo3aGnwtcc9l7UYiBqJ0LGwh",
+    "validationToken": "unable-to-verify",
+    "serverURL": "messenger.test-headout.com"
 }
