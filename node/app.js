@@ -638,7 +638,7 @@ function sendReceiptMessage(recipientId) {
 		},
 	};
 
-	request(`https://www.test-headout.com/api/v1/order/secure?secureId=`, (error, response, body) => {
+	request(`https://www.test-headout.com/api/v1/order/secure?secureId=aifPt0AuqQcK9VGNIuF9INRggLSphIrT0jb7MYFhSKG3LpUJAUEBJkUYk7OE3nxH7lJhZSCtFRsYVGhP9DUq8Q==`, (error, response, body) => {
 		if (!error && response.statusCode === 200) {
 
 			const orderDetails = response.json();
