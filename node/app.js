@@ -643,7 +643,6 @@ function sendReceiptMessage(recipientId, secureId) {
 		if (!error && response.statusCode === 200) {
 
 			const orderDetails = body;
-			const {card, productName, id, pricePayed, variantName, productId, pricePayedCurrency} = orderDetails;
 			console.log(orderDetails);
 
 			messageData.message = {
@@ -651,16 +650,16 @@ function sendReceiptMessage(recipientId, secureId) {
 					type: "template",
 					payload: {
 						template_type: "receipt",
-						order_number: id,
-						currency: pricePayedCurrency.code,
-						payment_method: `${card.brand} ${card.last4}`,
+						order_number: orderDetails.id,
+						currency: orderDetails.pricePayedCurrency.code,
+						payment_method: `${orderDetails.card.brand} ${orderDetails.card.last4}`,
 						timestamp: `${orderDetails.time / 1000}`,
 						elements: [{
-							title: productName,
-							subtitle: variantName,
-							price: pricePayed,
-							currency: pricePayed.code,
-							image_url: `${UrlUtils.getApiBaseUrl()}/api/v3/tour-group/get/id/${productId}/image`,
+							title: orderDetails.productName,
+							subtitle: orderDetails.variantName,
+							price: orderDetails.pricePayed,
+							currency: orderDetails.pricePayedCurrency.code,
+							image_url: `${UrlUtils.getApiBaseUrl()}/api/v3/tour-group/get/id/${orderDetails.}/image`,
 						}],
 					}
 				}
