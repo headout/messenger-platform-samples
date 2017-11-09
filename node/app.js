@@ -642,7 +642,7 @@ function sendReceiptMessage(recipientId, secureId) {
 	request(`https://www.test-headout.com/api/v1/order/secure?secureId=${secureId}`, (error, response, body) => {
 		if (!error && response.statusCode === 200) {
 
-			const orderDetails = body;
+			const orderDetails = JSON.parse(body);
 			console.log(orderDetails);
 
 			messageData.message = {
