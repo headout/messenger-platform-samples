@@ -645,7 +645,7 @@ function sendReceiptMessage(recipientId, secureId) {
 		  console.log(body);
 
 			const orderDetails = body;
-			const {card, productName, id, pricePayed, variantName, productId} = orderDetails;
+			const {card, productName, id, pricePayed, variantName, productId, pricePayedCurrency} = orderDetails;
 			console.log(orderDetails);
 
 			messageData.message = {
@@ -654,7 +654,7 @@ function sendReceiptMessage(recipientId, secureId) {
 					payload: {
 						template_type: "receipt",
 						order_number: id,
-						currency: pricePayed.code,
+						currency: pricePayedCurrency.code,
 						payment_method: `${card.brand} ${card.last4}`,
 						timestamp: `${orderDetails.time / 1000}`,
 						elements: [{
