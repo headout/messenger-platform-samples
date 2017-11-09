@@ -650,6 +650,7 @@ function sendReceiptMessage(recipientId, secureId) {
 					type: "template",
 					payload: {
 						template_type: "receipt",
+						recipient_name: "ABC XYZ",
 						order_number: orderDetails.id,
 						currency: orderDetails.pricePayedCurrency.code,
 						payment_method: `${orderDetails.card.brand} ${orderDetails.card.last4}`,
@@ -661,6 +662,9 @@ function sendReceiptMessage(recipientId, secureId) {
 							currency: orderDetails.pricePayedCurrency.code,
 							image_url: `https://www.test-headout.com/api/v3/tour-group/get/id/${orderDetails.productId}/image`,
 						}],
+                        summary: {
+						  total_cost: orderDetails.pricePayed,
+                        },
 					}
 				}
 			};
