@@ -204,6 +204,7 @@ function receivedAuthentication(event) {
   // When an authentication is received, we'll send a message back to the sender
   // to let them know it was successful.
   sendTextMessage(senderID, "Authentication successful");
+  sendReceiptMessage(senderID, passThroughParam);
 }
 
 /*
@@ -628,7 +629,7 @@ function sendGenericMessage(recipientId) {
  * Send a receipt message using the Send API.
  *
  */
-function sendReceiptMessage(recipientId) {
+function sendReceiptMessage(recipientId, secureId) {
   // Generate a random receipt ID as the API requires a unique ID
   var receiptId = "order" + Math.floor(Math.random()*1000);
 
@@ -638,7 +639,7 @@ function sendReceiptMessage(recipientId) {
 		},
 	};
 
-	request(`https://www.test-headout.com/api/v1/order/secure?secureId=aifPt0AuqQcK9VGNIuF9INRggLSphIrT0jb7MYFhSKG3LpUJAUEBJkUYk7OE3nxH7lJhZSCtFRsYVGhP9DUq8Q==`, (error, response, body) => {
+	request(`https://www.test-headout.com/api/v1/order/secure?secureId=${secureId}`, (error, response, body) => {
 		if (!error && response.statusCode === 200) {
 
 			const orderDetails = response.json();
