@@ -659,7 +659,7 @@ function sendReceiptMessage(recipientId, secureId) {
 							subtitle: orderDetails.variantName,
 							price: orderDetails.pricePayed,
 							currency: orderDetails.pricePayedCurrency.code,
-							image_url: `${UrlUtils.getApiBaseUrl()}/api/v3/tour-group/get/id/${orderDetails.}/image`,
+							image_url: `${UrlUtils.getApiBaseUrl()}/api/v3/tour-group/get/id/${orderDetails.productId}/image`,
 						}],
 					}
 				}
