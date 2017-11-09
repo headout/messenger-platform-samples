@@ -659,7 +659,7 @@ function sendReceiptMessage(recipientId, secureId) {
 							subtitle: orderDetails.variantName,
 							price: orderDetails.pricePayed,
 							currency: orderDetails.pricePayedCurrency.code,
-							image_url: `${UrlUtils.getApiBaseUrl()}/api/v3/tour-group/get/id/${orderDetails.productId}/image`,
+							image_url: `https://www.test-headout.com/api/v3/tour-group/get/id/${orderDetails.productId}/image`,
 						}],
 					}
 				}
@@ -667,9 +667,10 @@ function sendReceiptMessage(recipientId, secureId) {
 		} else {
 			console.error("Failed calling Send API", response.statusCode, response.statusMessage, body.error);
 		}
+
+		callSendAPI(messageData);
 	});
 
-  callSendAPI(messageData);
 }
 
 /*
